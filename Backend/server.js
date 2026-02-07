@@ -18,7 +18,14 @@ connectDB();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({ origin: true, credentials: true }));
+// In production (Render), set CORS_ORIGIN to your Vercel frontend URL (e.g. https://your-app.vercel.app)
+const corsOrigin = process.env.CORS_ORIGIN || true;
+app.use(
+  cors({
+    origin: corsOrigin,
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
