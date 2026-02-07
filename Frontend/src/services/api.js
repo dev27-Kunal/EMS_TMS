@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API_BASE_URL = "/api";
+// In production (Vercel), set VITE_API_URL to your Render backend URL (e.g. https://your-app.onrender.com)
+const API_BASE_URL = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL.replace(/\/$/, "")}/api`
+  : "/api";
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
