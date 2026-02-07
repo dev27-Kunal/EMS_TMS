@@ -1,0 +1,336 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Enterprise HR System Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core brand colors - Professional Navy/Slate */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Deep Navy Blue */
+    --primary: 222 47% 20%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Cool Slate */
+    --secondary: 215 20% 94%;
+    --secondary-foreground: 222 47% 20%;
+
+    --muted: 215 20% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Teal */
+    --accent: 173 58% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 20%;
+
+    --radius: 0.5rem;
+
+    /* Status colors */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    --pending: 262 52% 47%;
+    --pending-foreground: 0 0% 100%;
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 14%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 173 58% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 20%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 222 47% 20%;
+    --sidebar-ring: 173 58% 39%;
+
+    /* KPI Card gradients */
+    --kpi-primary: linear-gradient(135deg, hsl(222 47% 20%) 0%, hsl(222 47% 30%) 100%);
+    --kpi-success: linear-gradient(135deg, hsl(142 71% 40%) 0%, hsl(142 71% 50%) 100%);
+    --kpi-warning: linear-gradient(135deg, hsl(38 92% 45%) 0%, hsl(38 92% 55%) 100%);
+    --kpi-info: linear-gradient(135deg, hsl(199 89% 43%) 0%, hsl(199 89% 53%) 100%);
+    --kpi-pending: linear-gradient(135deg, hsl(262 52% 42%) 0%, hsl(262 52% 52%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 20% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 173 58% 45%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 47% 17%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 222 47% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 173 58% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 47% 20%;
+    --input: 222 47% 20%;
+    --ring: 173 58% 45%;
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 173 58% 45%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 47% 14%;
+    --sidebar-accent-foreground: 210 20% 98%;
+    --sidebar-border: 222 47% 14%;
+    --sidebar-ring: 173 58% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* KPI Cards - ensure dark gradient + high-contrast white text/icons */
+  .kpi-card {
+    @apply rounded-xl p-5 shadow-md transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+    color: #ffffff;
+  }
+
+  .kpi-card-title {
+    @apply text-sm font-medium;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .kpi-card-value {
+    @apply mt-2 text-3xl font-bold;
+    color: #ffffff;
+  }
+
+  .kpi-card-subtitle {
+    @apply mt-1 text-sm;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .kpi-card-icon-wrap {
+    @apply rounded-lg p-3;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .kpi-card-icon {
+    @apply h-6 w-6;
+    color: #ffffff;
+  }
+  
+  .kpi-card-primary {
+    background: var(--kpi-primary);
+    background-color: hsl(222 47% 22%);
+  }
+  
+  .kpi-card-success {
+    background: var(--kpi-success);
+    background-color: hsl(142 71% 42%);
+  }
+  
+  .kpi-card-warning {
+    background: var(--kpi-warning);
+    background-color: hsl(38 92% 48%);
+  }
+  
+  .kpi-card-info {
+    background: var(--kpi-info);
+    background-color: hsl(199 89% 46%);
+  }
+  
+  .kpi-card-pending {
+    background: var(--kpi-pending);
+    background-color: hsl(262 52% 46%);
+  }
+
+  /* Status Badges */
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-badge-success {
+    @apply bg-success/10 text-success;
+  }
+  
+  .status-badge-warning {
+    @apply bg-warning/10 text-warning;
+  }
+  
+  .status-badge-destructive {
+    @apply bg-destructive/10 text-destructive;
+  }
+  
+  .status-badge-info {
+    @apply bg-info/10 text-info;
+  }
+  
+  .status-badge-pending {
+    @apply bg-pending/10 text-pending;
+  }
+  
+  .status-badge-muted {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  /* Page containers */
+  .page-container {
+    @apply p-6 space-y-6;
+  }
+
+  .page-header {
+    @apply flex flex-col gap-4 md:flex-row md:items-center md:justify-between;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold text-foreground;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Data tables */
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table th {
+    @apply text-left font-medium text-muted-foreground py-3 px-4 border-b bg-muted/50;
+  }
+
+  .data-table td {
+    @apply py-3 px-4 border-b;
+  }
+
+  .data-table tr:hover {
+    @apply bg-muted/30;
+  }
+
+  /* Filter panels */
+  .filter-panel {
+    @apply flex flex-wrap gap-3 p-4 bg-card rounded-lg border;
+  }
+
+  /* Empty states */
+  .empty-state {
+    @apply flex flex-col items-center justify-center py-12 text-center;
+  }
+
+  .empty-state-icon {
+    @apply w-16 h-16 text-muted-foreground/40 mb-4;
+  }
+
+  .empty-state-title {
+    @apply text-lg font-medium text-foreground mb-2;
+  }
+
+  .empty-state-description {
+    @apply text-sm text-muted-foreground max-w-sm;
+  }
+
+  /* Loading states */
+  .skeleton-row {
+    @apply animate-pulse bg-muted rounded h-12;
+  }
+
+  /* Form sections */
+  .form-section {
+    @apply bg-card rounded-lg border p-6 space-y-4;
+  }
+
+  .form-section-title {
+    @apply text-lg font-semibold border-b pb-3 mb-4;
+  }
+
+  /* Action buttons group */
+  .action-buttons {
+    @apply flex items-center gap-2;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
